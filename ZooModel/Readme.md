@@ -22,7 +22,6 @@ cond(yes)->op6
 cond(no)->op3
 ```
 
-___
 ## 界面分析
 程序界面如下图所示：
 ![interface](ZooModel interface.png)
@@ -38,7 +37,6 @@ ___
 |`op-hr`|开放时间（小时）|
 
 
-___
 ## 代码分析
 ```NetLogo
 globals [op-sec total-attractiveness]
