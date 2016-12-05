@@ -1,10 +1,11 @@
 
 # 动物园行人模型
 *文件名：ZooModel.nlogo*
-___
+
 ## 模型简介
-本程序依据*Pedestrian Modelling in NetLogo*这篇论文，演示了动物园中游客依据自己所偏好的地点进行游览的路线，
+本程序依据[*Pedestrian Modelling in NetLogo*](https://scholar.googleusercontent.com/scholar.bib?q=info:D642eT9PKoMJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAWEWL08qWAwZRs6YQDV4YexcPVp-GH-Na&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1)这篇论文，演示了动物园中游客依据自己所偏好的地点进行游览的路线，
 本程序由一下几个部分组成：
+
 ```flow
 st=>start: Start
 ed=>end
@@ -31,31 +32,33 @@ ___
 界面各参数意义如下：
 |参数|意义|
 |---|---|
-|```zoo-size```|动物园边长|
-|```site-num```|景点数量|
-|```incoming-rate```|每次产生游客的概率|
-|```op-hr```|开放时间（小时）|
+|`zoo-size`|动物园边长|
+|`site-num`|景点数量|
+|`incoming-rate`|每次产生游客的概率|
+|`op-hr`|开放时间（小时）|
 
 
 ___
 ## 代码分析
-```
+```NetLogo
 globals [op-sec total-attractiveness]
 ```
 全局变量：
+
 |变量|意义 |
 |:---|:---|
-| ```op-sec```| 开放时间（秒）|
-|```total-attractiveness```|景点总吸引力|
+| `op-sec`| 开放时间（秒）|
+|`total-attractiveness`|景点总吸引力|
 
-```
+```NetLogo
 breed [visitors visitor]
 breed [sites site]
 breed [walls site]
 breed [gates gate]
 ```
 生成不同物种（游客、经典、围墙、门口）
-```
+
+```NetLogo
 turtles-own [
     force-factor
 ]
@@ -81,35 +84,38 @@ visitors-own [
     nearest-prefery
 ]
 ```
+
 海龟变量：
+
 |变量|意义 |
 |:---|:---|
-| ```force-factor```| 排斥力系数|
+| `force-factor`| 排斥力系数|
 
 景点变量：
+
 |变量|意义 |
 |:---|:---|
-| ```attractiveness```| 吸引力|
-| ```capacity```|承载力|
-| ```num```| 编号|
+| `attractiveness`| 吸引力|
+| `capacity`|承载力|
+| `num`| 编号|
 
 游客变量：
 |变量|意义 |
 |:---|:---|
-| ```destx```|目的地横坐标|
-| ```desty```|目的地纵坐标|
-| ```status```|当前状态（走动、观赏、离开）|
-| ```want-to```|想要游览的景点列表|
-| ```been-to```|已经游览的景点列表|
-|```time-limit```|应离开的时间|
-|```enjoy-limit```|当前观赏剩余时间|
-|```speed```|行走速率|
-|```nearestx```|未去过且距离最近的而非想要游览的景点的横坐标|
-|```nearesty```|未去过且距离最近的而非想要游览的景点的横坐标|
-|```nearest-preferx```|未去过且距离最近的想要游览的景点的横坐标|
-|```nearest-prefery```|未去过且距离最近的想要游览的景点的纵坐标|
+| `destx`|目的地横坐标|
+| `desty`|目的地纵坐标|
+| `status`|当前状态（走动、观赏、离开）|
+| `want-to`|想要游览的景点列表|
+| `been-to`|已经游览的景点列表|
+|`time-limit`|应离开的时间|
+|`enjoy-limit`|当前观赏剩余时间|
+|`speed`|行走速率|
+|`nearestx`|未去过且距离最近的而非想要游览的景点的横坐标|
+|`nearesty`|未去过且距离最近的而非想要游览的景点的横坐标|
+|`nearest-preferx`|未去过且距离最近的想要游览的景点的横坐标|
+|`nearest-prefery`|未去过且距离最近的想要游览的景点的纵坐标|
 
-```
+```NetLogo
 to setup
   clear-all
   set-default-shape walls "tile brick"
@@ -120,8 +126,10 @@ to setup
   reset-ticks
 end
 ```
+
 设置不同物种的形状、设置开放时间
-```
+
+```NetLogo
 to draw-zoo
     ;; 生成动物园（绿色）
     ask patches with [
@@ -171,8 +179,10 @@ to draw-zoo
     ]
 end
 ```
-其中经典的初始化顺序生成编号、随机生成吸引力、承载力。设定排斥力系数```force-factor```，围墙为2、大门为0、景点为1，用途后文将提到。
-```
+
+其中经典的初始化顺序生成编号、随机生成吸引力、承载力。设定排斥力系数`force-factor`，围墙为2、大门为0、景点为1，用途后文将提到。
+
+```NetLogo
 to go
     gen-visitors ;生成游客
     ask visitors [
@@ -182,7 +192,8 @@ to go
     tick
 end
 ```
-```
+
+```NetLogo
 to gen-visitors
     if (random 100 < incoming-rate) [
         ask one-of gates [
@@ -193,7 +204,8 @@ to gen-visitors
     ]
 end
 ```
-```
+
+```NetLogo
 to initial-setting
     set time-limit
         min (list (ticks + ((random 5) + 2) * 3600) op-sec)
@@ -206,7 +218,8 @@ to initial-setting
     select-next ; 选择下一个目的地
 end
 ```
-```
+
+```NetLogo
 to gen-want-to
     if (total-attractiveness = 0) [
         stop
@@ -224,7 +237,8 @@ to gen-want-to
     set want-to remove-duplicates want-to ;去除列表中重复的景点
 end
 ```
-```
+
+```NetLogo
 to get-ready
     if (status = "enjoying") [
         ifelse (enjoy-limit = 0) [
@@ -266,7 +280,9 @@ to get-ready
     ]
 end
 ```
+
 对游客的状态进行调整，流程如下：
+
 ```flow
 st=>start: Start
 en=>condition: 当前状态为“观赏”？
@@ -311,7 +327,8 @@ rd(no)->ed
 rg(yes)->van->ed
 rg(no)->ed
 ```
-```
+
+```NetLogo
 to select-next
     ifelse (any? sites with [
             member? num ([been-to] of myself) = false
@@ -371,8 +388,10 @@ to select-next
     ]
 end
 ```
+
 nearest的景点和nearest-prefer的景点的意义如前所述，如果nearest景点在游客位置与nearest-prefer景点位置为焦距，离心率为$\frac{\sqrt{2}}{2}$的椭圆上，则（顺路）去nearest景点。
-```
+
+```NetLogo
 to get-direction
     if (status = "going" or status = "leaving") [
         set heading towardsxy destx desty ;初始朝向为目的地
@@ -392,8 +411,10 @@ to get-direction
     ]
 end
 ```
+
 根据参考论文中的Social Force理论，游客会受到障碍（其他游客、围墙、不是目的地的景点）的排斥力，该力的大小与距离呈负相关关系，在合力作用下，游客尽可能绕开障碍前进。
-```
+
+```NetLogo
 to move
     if (status = "going" or status = "leaving") [ ;仅对走动和离开的游客
         fd speed
@@ -410,12 +431,11 @@ to move
     ]
 end
 ```
+
 根据参考论文中元胞自动机理论，游客取整数坐标，遇到小数坐标，则根据到相邻整数格点的距离为概率进行选择。
 
-___
 ##难点
 该程序难点在于游客在“走动”、“观赏”、“离开”状态之间的切换，目的地的选择（原文中并未提供具体选择方案）和障碍物排斥力的实现。
 
-___
 ##仍然存在的问题
 本程序模拟时，大部分游客走直线，且有一部分贴近围墙行进，原因不明。
