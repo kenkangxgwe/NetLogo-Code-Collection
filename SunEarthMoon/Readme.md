@@ -1,5 +1,5 @@
 # 日地月三体模型 
-*文件名：SunEarthMoon.nlogo*
+*文件名：[SunEarthMoon.nlogo](./SunEarthMoon.nlogo)*
 
 ## 模型简介
 该模型主要应用欧拉向前差分法模拟了**地球绕太阳公转、月球绕地球公转**的三体运动。

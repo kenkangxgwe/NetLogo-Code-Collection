@@ -1,5 +1,5 @@
 # 太阳系模型 
-*文件名：SolarSystem.nlogo*
+*文件名：[SolarSystem.nlogo](./SolarSystem.nlogo)*
 
 ## 模型简介
 该模型主要应用欧拉向前差分法模拟了**太阳系八大行星绕太阳公转、月球绕地球公转**的运动。
