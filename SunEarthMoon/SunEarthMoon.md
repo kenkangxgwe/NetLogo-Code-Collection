@@ -18,10 +18,13 @@
 本程序虽然大体上与太阳系模型接近，但是难点在于如何改变日地距离与地月距离的长度比，详见难点小节。
 
 ## 界面分析
+
 程序界面如下图所示：
+
 ![interface](SunEarthMoon interface.png)
 
 运行并显示轨迹，界面如下图所示：
+
 ![view](SunEarthMoon view.png)
 
 
