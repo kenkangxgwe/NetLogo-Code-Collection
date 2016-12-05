@@ -3,7 +3,7 @@
 *文件名：[ZooModel.nlogo](./ZooModel.nlogo)*
 
 ## 模型简介
-本程序依据[*Pedestrian Modelling in NetLogo*](https://scholar.googleusercontent.com/scholar.bib?q=info:D642eT9PKoMJ:scholar.google.com/&output=citation&scisig=AAGBfm0AAAAAWEWL08qWAwZRs6YQDV4YexcPVp-GH-Na&scisf=4&ct=citation&cd=-1&hl=en&scfhb=1)这篇论文，演示了动物园中游客依据自己所偏好的地点进行游览的路线，
+本程序依据[*Pedestrian Modelling in NetLogo*](http://link.springer.com/chapter/10.1007/978-3-319-10783-7_33)这篇论文，演示了动物园中游客依据自己所偏好的地点进行游览的路线，
 本程序由一下几个部分组成：
 
 ```flow
