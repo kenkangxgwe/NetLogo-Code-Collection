@@ -1,0 +1,38 @@
+1 | Jupiter | 1.89813¡Á10^27 kg~~317.828 M_earth | 
+2 | Saturn | 5.68319¡Á10^26 kg~~95.1608 M_earth | 
+3 | Neptune | 1.0241¡Á10^26 kg~~17.1478 M_earth | 
+4 | Uranus | 8.68103¡Á10^25 kg~~14.5357 M_earth | 
+5 | Earth | 5.9721986¡Á10^24 kg | 
+6 | Venus | 4.86732¡Á10^24 kg~~0.814996 M_earth | 
+7 | Mars | 6.41693¡Á10^23 kg~~0.107447 M_earth | 
+8 | Mercury | 3.30104¡Á10^23 kg~~0.0552734 M_earth |
+9 | Moon | 5.9721986¡Á10^24 kg~~0.012 M_earth |
+
+1 | Neptune | 29.97 au
+4.154 light hours
+2 | Uranus | 20 au
+2.772 light hours
+3 | Saturn | 9.974 au
+1.383 light hours
+4 | Jupiter | 5.356 au
+44.54 light minutes
+5 | Mars | 1.489 au
+12.39 light minutes
+6 | Earth | 1.006 au
+8.369 light minutes
+7 | Venus | 0.7186 au
+5.976 light minutes
+8 | Mercury | 0.3213 au
+2.672 light minutes
+9 | Moon | 1.01 au
+8.399 light minutes
+
+1 | Mercury | 47.4 km/s
+2 | Venus | 35 km/s
+3 | Earth | 29.8 km/s
+4 | Mars | 24.1 km/s
+5 | Jupiter | 13 km/s
+6 | Saturn | 9.64 km/s
+7 | Uranus | 6.8 km/s
+8 | Neptune | 5.43 km/s
+9 | Moon | 1.02 km/s
